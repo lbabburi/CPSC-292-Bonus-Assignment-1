@@ -1,0 +1,31 @@
+---
+title: "Assignment 4.1"
+subtitle: "CPSC 292 Section 03 Hansen"
+author: "Lakshita Babburi"
+date: "12/1/2023"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Write a 200 word summary of Lecture 4.1 that includes any tips and tricks for successfully communicating science. 
+
+The main parts in effectively communicating science is knowing your goal, knowing your audience, and knowing how to tell a story. Knowing your goal is necessary because it will affect how you format your whole presentation or lecture or whatever format the science is in. Knowing your audience is important because with certain audiences, you may need to explain more details about your project for it to make sense compared to other audiences where they may only need to be a few details explained for them to understand. Finally, knowing how to tell a story can keep people interested in your presentation/etc and will help them keep the knowledge even after they’ve seen the presentation. One way to make sure you’re communicating science effectively is to show another person your work. They can critique and give constructive criticism and you can also gauge how easy your work is to understand. Having visuals is often helpful when communicating science because a lot of people are visual learners and by having a visual to supplement any written information, it will most likely make the written information easier to understand for the audience.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
