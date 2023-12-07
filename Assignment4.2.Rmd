@@ -1,0 +1,31 @@
+---
+title: "Assignment 4.2"
+subtitle: "CPSC 292 Section 03 Hansen"
+author: "Lakshita Babburi"
+date: "12/1/2023"
+output: html_notebook
+bibliography: dolphins.bib
+csl: nature-genetics.csl
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+1. Search term used in google scholar was "dolphins". 
+
+2. This paper was about male dolphins tend to form alliances [@connor1999superalliance]. This paper talks about river dolphins and how they are the most endangered species of cetaceans @hamilton2001evolution. This book discusses how dolphins use sonar and can communicate with each other using sonar and echolocation [-@au1993sonar]. This book talks about how dolphins act and their complex cognitive processes [@herman2013cognition]. This short book doesn't really give any information on dolphins but it has all the names of the topics covered in the book. The book is about the history of whales and dolphins [-@evans1987whales]. 
+
+
+## References 
+
+
+
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

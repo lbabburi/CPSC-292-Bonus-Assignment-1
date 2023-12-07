@@ -1,0 +1,101 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+
+```{r}
+
+
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(janitor)
+library(tidyr)
+
+project2.data <- read.csv("cats_vs_dogs.csv")
+
+
+```
+
+
+# Visualization One
+
+```{r}
+
+# creating a new column that tells us whether a certain state has a higher percentage of dog owners or a higher percentage of cat owners 
+
+
+project2.data$new_column <- ifelse(project2.data$percent_dog_owners > project2.data$percent_cat_owners, "dog", "cat")
+
+new.vector <- rep(NA, nrow(project2.data))
+
+for (i in 1:nrow(project2.data)) {
+  new.vector[i] <- ifelse(project2.data$percent_dog_owners[i] > project2.data$percent_cat_owners[i], "dog", "cat")
+}
+
+project2.data$new_column <- new.vector
+
+
+# creating the visualization from the new column 
+
+
+project2.data$region <- tolower(project2.data$state)   # adding in a region column to the left of the data table 
+head(project2.data)   # changing the region from numbers to the states #project2.data$region <- project2.data$state
+
+states_map <- map_data("state")
+project2_map <- left_join(states_map, project2.data, by = "region")
+
+ggplot(project2_map, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = new_column), color = "white") + 
+  ggtitle("States With More Dog Owners vs States With More Cat Owners") +
+  scale_fill_manual(values = c("dog" = "lightblue", "cat" = "lightpink"))
+
+
+```
+
+
+# Visualization Two
+
+```{r}
+
+# creating a new column that tells us whether a certain state has a higher dog population or a higher cat population 
+
+project2.data$pop_column <- ifelse(project2.data$dog_population > project2.data$cat_population, "dog", "cat")
+
+new.vector <- rep(NA, nrow(project2.data))
+
+for (i in 1:nrow(project2.data)) {
+  new.vector[i] <- ifelse(project2.data$dog_population[i] > project2.data$cat_population[i], "dog", "cat")
+}
+
+project2.data$pop_column <- new.vector
+
+
+# creating the visualization from the new column 
+
+
+project2.data$region <- tolower(project2.data$state)   # adding in a region column to the left of the data table 
+head(project2.data)   # changing the region from numbers to the states #project2.data$region <- project2.data$state
+
+states_map <- map_data("state")
+project2_map <- left_join(states_map, project2.data, by = "region")
+
+ggplot(project2_map, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = pop_column), color = "white") + 
+  ggtitle("States With a Higher Dog Population vs States With a Higher Cat Population") +
+  scale_fill_manual(values = c("dog" = "lightblue", "cat" = "lightpink"))
+
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
